@@ -32,11 +32,12 @@ print(f'Your code is {code.code}')
 
 window = tk.Tk()
 window.title('Rooms')
+window.geometry('100x80')
 
 label = tk.Label(window, text='')
 label.pack()
 
-def check_code(event):
+def check_code(_):
     entered_code = entry.get()
     if entered_code == code.code:
         label.config(text='You entered!')
