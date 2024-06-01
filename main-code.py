@@ -26,6 +26,9 @@ class GenerateCode:
                 self.listed_code.append('-')
         
         self.code = ''.join(self.listed_code)
+    
+    def delete_code(self):
+        self.listed_code.clear()
 
 code = GenerateCode(6)
 print(f'Your code is {code.code}')
@@ -44,11 +47,10 @@ def check_code(_) -> None:
     if entered_code == code.code: label.config(text='You entered!')
 
     elif entered_code == "command=<'re'>" or entered_code == 'command=<"re">' or entered_code == 'reset.co' or entered_code == 'reset-code':
-        
         code.re_generate()
         print(f'Your new code is {code.code}')
         label.config(text='Code regenerated. Enter the new code.')
-    
+    elif entered_code == 'del-code' or entered_code == 'del': code.delete_code
     else: label.config(text='Error! Not a valid code.')
 
 entry = tk.Entry(window)
