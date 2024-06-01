@@ -50,7 +50,9 @@ def check_code(_) -> None:
         code.re_generate()
         print(f'Your new code is {code.code}')
         label.config(text='Code regenerated. Enter the new code.')
-    elif entered_code == 'del-code' or entered_code == 'del': code.delete_code
+    elif entered_code == 'del-code' or entered_code == 'del':
+        code.delete_code
+        label.config(text='Code Deleted.')
     else: label.config(text='Error! Not a valid code.')
 
 entry = tk.Entry(window)
