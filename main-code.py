@@ -32,21 +32,24 @@ print(f'Your code is {code.code}')
 
 window = tk.Tk()
 window.title('Rooms')
-window.geometry('100x80')
+window.geometry('250x200')
+
 
 label = tk.Label(window, text='')
 label.pack()
 
-def check_code(_):
+def check_code(_) -> None:
     entered_code = entry.get()
-    if entered_code == code.code:
-        label.config(text='You entered!')
-    elif entered_code == "command=<'re'>":
+    
+    if entered_code == code.code: label.config(text='You entered!')
+
+    elif entered_code == "command=<'re'>" or entered_code == 'command=<"re">' or entered_code == 'reset.co' or entered_code == 'reset-code':
+        
         code.re_generate()
         print(f'Your new code is {code.code}')
         label.config(text='Code regenerated. Enter the new code.')
-    else:
-        label.config(text='Error! Not a valid code.')
+    
+    else: label.config(text='Error! Not a valid code.')
 
 entry = tk.Entry(window)
 entry.pack()
